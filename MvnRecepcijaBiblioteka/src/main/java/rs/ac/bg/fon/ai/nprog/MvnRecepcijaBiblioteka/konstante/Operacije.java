@@ -17,4 +17,5 @@ public class Operacije implements Serializable{
     public static final int VRATI_SVE_ZAKUPE = 12;
     public static final int VRATI_ID = 13;
     public static final int LOGOUT = 14;
+    public static final int VRATI_USLUGE_ZA_SOBU = 15;
 }
