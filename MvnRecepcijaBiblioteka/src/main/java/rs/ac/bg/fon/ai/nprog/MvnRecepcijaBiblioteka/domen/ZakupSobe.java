@@ -231,6 +231,41 @@ public class ZakupSobe implements OpstiDomenskiObjekat, Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	/**
+	 * Proverava da li su dva zakupa ista i vraca
+	 * true ako jesu, a false ako nisu.
+	 * 
+	 * @return true ako je unet objekat klase ZakupSobe
+	 * sa istim identifikatorom, gostom koji zakupljuje i sobom koja je zakupljena, inace false.
+	 */
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ZakupSobe other = (ZakupSobe) obj;
+		if (gostZakupljuje == null) {
+			if (other.gostZakupljuje != null)
+				return false;
+		} else if (!gostZakupljuje.equals(other.gostZakupljuje))
+			return false;
+		if (zakupID == null) {
+			if (other.zakupID != null)
+				return false;
+		} else if (!zakupID.equals(other.zakupID))
+			return false;
+		if (zakupljenaSoba == null) {
+			if (other.zakupljenaSoba != null)
+				return false;
+		} else if (!zakupljenaSoba.equals(other.zakupljenaSoba))
+			return false;
+		return true;
+	}
 
 	/**
    	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o zakupu sobe

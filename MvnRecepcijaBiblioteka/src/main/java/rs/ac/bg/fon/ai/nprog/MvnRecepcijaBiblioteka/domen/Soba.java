@@ -114,6 +114,31 @@ public class Soba implements OpstiDomenskiObjekat, Serializable{
 	}
 	
 	/**
+	 * Proverava da li su dve sobe iste i vraca
+	 * true ako jesu, a false ako nisu.
+	 * 
+	 * @return true ako je unet objekat klase Soba
+	 * sa istim identifikatorom, inace false.
+	 */
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Soba other = (Soba) obj;
+		if (sobaID == null) {
+			if (other.sobaID != null)
+				return false;
+		} else if (!sobaID.equals(other.sobaID))
+			return false;
+		return true;
+	}
+
+	/**
    	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o sobi.
    	 * 
    	 * @return String koji predstavlja naziv tabele.

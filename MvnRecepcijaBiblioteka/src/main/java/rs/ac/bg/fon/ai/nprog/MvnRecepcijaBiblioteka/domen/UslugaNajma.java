@@ -174,6 +174,30 @@ public class UslugaNajma implements OpstiDomenskiObjekat, Serializable{
 	public void setVrstaSobe(VrstaSobe vrstaSobe) {
 		this.vrstaSobe = vrstaSobe;
 	}
+	
+	/**
+	 * Proverava da li su dve usluge iste i vraca
+	 * true ako jesu, a false ako nisu.
+	 * 
+	 * @return true ako je unet objekat klase UslugaNajma
+	 * sa istim identifikatorom, inace false.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UslugaNajma other = (UslugaNajma) obj;
+		if (uslugaNajmaID == null) {
+			if (other.uslugaNajmaID != null)
+				return false;
+		} else if (!uslugaNajmaID.equals(other.uslugaNajmaID))
+			return false;
+		return true;
+	}
 
 	/**
    	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o usluzi najma

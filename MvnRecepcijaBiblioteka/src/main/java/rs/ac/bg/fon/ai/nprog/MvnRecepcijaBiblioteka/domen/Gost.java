@@ -225,6 +225,36 @@ public class Gost implements OpstiDomenskiObjekat, Serializable{
     }
 
 	/**
+	 * Proverava da li su dva gosta ista i vraca
+	 * true ako jesu, a false ako nisu.
+	 * 
+	 * @return true ako je unet objekat klase Gost
+	 * sa istim identifikatorom i brojem licne karte, inace false.
+	 */
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Gost other = (Gost) obj;
+		if (brojLicneKarte == null) {
+			if (other.brojLicneKarte != null)
+				return false;
+		} else if (!brojLicneKarte.equals(other.brojLicneKarte))
+			return false;
+		if (gostID == null) {
+			if (other.gostID != null)
+				return false;
+		} else if (!gostID.equals(other.gostID))
+			return false;
+		return true;
+	}
+	
+	/**
 	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o gostu.
 	 * 
 	 * @return String koji predstavlja naziv tabele.
@@ -233,7 +263,9 @@ public class Gost implements OpstiDomenskiObjekat, Serializable{
 	public String getImeTabele() {
 		return "gost";
 	}
+
 	
+
 	/**
 	 * Metoda vraća vrednosti atributa objekta klase Gost koje bi trebalo sačuvati u bazi.
 	 * 

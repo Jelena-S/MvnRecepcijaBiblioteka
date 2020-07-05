@@ -172,6 +172,30 @@ public class VrstaSobe implements OpstiDomenskiObjekat, Serializable{
     }
 
 	/**
+	 * Proverava da li su dve vrste sobe iste i vraca
+	 * true ako jesu, a false ako nisu.
+	 * 
+	 * @return true ako je unet objekat klase VrstaSobe
+	 * sa istim identifikatorom, inace false.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VrstaSobe other = (VrstaSobe) obj;
+		if (vrstaSobeID == null) {
+			if (other.vrstaSobeID != null)
+				return false;
+		} else if (!vrstaSobeID.equals(other.vrstaSobeID))
+			return false;
+		return true;
+	}
+
+	/**
    	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o vrsti sobe
    	 * 
    	 * @return String koji predstavlja naziv tabele.
