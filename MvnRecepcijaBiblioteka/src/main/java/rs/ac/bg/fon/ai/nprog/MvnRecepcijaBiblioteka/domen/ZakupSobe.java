@@ -252,7 +252,7 @@ public class ZakupSobe implements OpstiDomenskiObjekat, Serializable{
 		if (gostZakupljuje == null) {
 			if (other.gostZakupljuje != null)
 				return false;
-		} else if (!gostZakupljuje.equals(other.gostZakupljuje))
+		} else if (!gostZakupljuje.getGostID().equals(other.gostZakupljuje.getGostID()))
 			return false;
 		if (zakupID == null) {
 			if (other.zakupID != null)
@@ -262,7 +262,7 @@ public class ZakupSobe implements OpstiDomenskiObjekat, Serializable{
 		if (zakupljenaSoba == null) {
 			if (other.zakupljenaSoba != null)
 				return false;
-		} else if (!zakupljenaSoba.equals(other.zakupljenaSoba))
+		} else if (!zakupljenaSoba.getSobaID().equals(other.zakupljenaSoba.getSobaID()))
 			return false;
 		return true;
 	}
