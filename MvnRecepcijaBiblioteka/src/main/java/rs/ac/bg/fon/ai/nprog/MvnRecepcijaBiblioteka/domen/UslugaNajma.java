@@ -266,8 +266,13 @@ public class UslugaNajma implements OpstiDomenskiObjekat, Serializable{
                 String name = rs.getString("nazivUslugeNajma");
                 Double price = rs.getDouble("cenaUsluge");
                 Long vrstaSobeID = rs.getLong("vrstaSobeID");
+                Long katalogID = rs.getLong("katalogID");
                 
-               UslugaNajma un = new UslugaNajma(new StavkaKataloga(stavkaID),uslugaID, name, price, new VrstaSobe(vrstaSobeID));
+                StavkaKataloga stavkaKataloga = new StavkaKataloga();
+                stavkaKataloga.setStavkaKatalogaID(stavkaID);
+                stavkaKataloga.setKatalog(new Katalog(katalogID));
+                
+               UslugaNajma un = new UslugaNajma(stavkaKataloga,uslugaID, name, price, new VrstaSobe(vrstaSobeID));
                usluge.add(un);
             }
         } catch (Exception e) {
