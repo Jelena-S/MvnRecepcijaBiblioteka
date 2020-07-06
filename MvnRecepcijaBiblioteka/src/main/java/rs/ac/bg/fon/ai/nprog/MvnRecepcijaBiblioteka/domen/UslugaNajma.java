@@ -200,6 +200,17 @@ public class UslugaNajma implements OpstiDomenskiObjekat, Serializable{
 	}
 
 	/**
+     * Metoda vraća String koji sadrži naziv usluge najma
+     * 
+     * @return String koji sadrži naziv usluge najma
+     */
+	
+	@Override
+	public String toString() {
+		return nazivUslugeNajma;
+	}
+	
+	/**
    	 * Metoda vraća naziv tabele u bazi u kojoj se nalaze podaci o usluzi najma
    	 * 
    	 * @return String koji predstavlja naziv tabele.
